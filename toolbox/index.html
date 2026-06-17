@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Toolbox</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+        }
+
+        nav {
+            background: #222;
+            color: white;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        input, select, button {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: #0078ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005fd1;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#">Converter</a>
+</nav>
+
+<div class="container">
+    <h1>Temperature Converter</h1>
+
+    <input
+        type="number"
+        id="tempInput"
+        placeholder="Enter temperature">
+
+    <select id="unit">
+        <option value="F">Fahrenheit to Celsius</option>
+        <option value="C">Celsius to Fahrenheit</option>
+    </select>
+
+    <button onclick="convertTemp()">
+        Convert
+    </button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function convertTemp() {
+
+    const value =
+        parseFloat(document.getElementById("tempInput").value);
+
+    const unit =
+        document.getElementById("unit").value;
+
+    const result =
+        document.getElementById("result");
+
+    if (isNaN(value)) {
+        result.textContent =
+            "Please enter a number.";
+        return;
+    }
+
+    if (unit === "F") {
+        const celsius =
+            (value - 32) * 5 / 9;
+
+        result.textContent =
+            value + "°F = " +
+            celsius.toFixed(2) +
+            "°C";
+    } else {
+
+        const fahrenheit =
+            (value * 9 / 5) + 32;
+
+        result.textContent =
+            value + "°C = " +
+            fahrenheit.toFixed(2) +
+            "°F";
+    }
+}
+</script>
+
+</body>
+</html>
