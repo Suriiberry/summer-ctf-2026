@@ -1,1 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Game</title>
+</head>
+<body>
 
+<canvas id="gameCanvas" width="600" height="400"></canvas>
+
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+const playerSize = 40;
+
+const playerX = (canvas.width - playerSize) / 2;
+const playerY = (canvas.height - playerSize) / 2;
+
+ctx.fillStyle = "blue";
+ctx.fillRect(playerX, playerY, playerSize, playerSize);
+</script>
+
+</body>
+</html>
